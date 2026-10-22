@@ -1,20 +1,5 @@
-# Image Node.js
-FROM node:22-alpine
+FROM jc21/nginx-proxy-manager:latest
 
-# Répertoire de travail
-WORKDIR /app
-
-# Copier les fichiers de dépendances
-COPY package*.json ./
-
-# Installer les dépendances
-RUN npm install
-
-# Copier le code source
-COPY . .
-
-# Exposer le port 8080
-EXPOSE 8080
-
-# Démarrer l'application
-CMD ["npm", "start"]
+EXPOSE 80
+EXPOSE 443
+EXPOSE 81
