@@ -1,5 +1,10 @@
-FROM jc21/nginx-proxy-manager:latest
+FROM traefik:v3.5
 
-EXPOSE 80
-EXPOSE 443
-EXPOSE 81
+EXPOSE 8080
+
+CMD [
+  "traefik",
+  "--api.insecure=true",
+  "--api.dashboard=true",
+  "--entrypoints.web.address=:8080"
+]
