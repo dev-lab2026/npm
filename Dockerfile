@@ -1,10 +1,5 @@
-FROM traefik:v3.5
+FROM nginx:alpine
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 8080
-
-CMD [
-  "traefik",
-  "--api.insecure=true",
-  "--api.dashboard=true",
-  "--entrypoints.web.address=:8080"
-]
