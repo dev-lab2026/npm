@@ -10,8 +10,8 @@ http:
       service: odoo
 
     ssh:
-      rule: "Host(`ssh.cleverapps.io`)"
-      service: ssh
+      rule: "Host(`vscode.tfsn.dev`) || Host(`ssh.cleverapps.io`)"
+      service: vscode
 
   services:
 
@@ -25,7 +25,7 @@ http:
         servers:
           - url: "http://85.215.215.242:8069"
 
-    ssh:
+    vscode:
       loadBalancer:
         servers:
           - url: "http://85.215.215.242:8071"
