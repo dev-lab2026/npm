@@ -18,7 +18,7 @@ http:
         certResolver: le
 
     vscode:
-      rule: "Host(`vscode.tfsn.dev`) || Host(`ssh.cleverapps.io`)"
+      rule: "Host(`npm.cleverapps.io`)"
       entryPoints:
         - websecure
       service: vscode
@@ -57,7 +57,7 @@ http:
     vscode:
       loadBalancer:
         servers:
-          - url: "http://85.215.215.242:8080"
+          - url: "http://85.215.215.242:81"
 
     prometric:
       loadBalancer:
