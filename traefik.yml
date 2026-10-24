@@ -4,8 +4,11 @@ entryPoints:
 
 providers:
   file:
-    directory: /etc/traefik/dynamic
+    directory: "/etc/traefik/dynamic"
     watch: true
 
-api:
-  dashboard: true
+serversTransport:
+  insecureSkipVerify: true
+
+log:
+  level: DEBUG
