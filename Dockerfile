@@ -1,6 +1,7 @@
-FROM nginx:alpine
+FROM jc21/nginx-proxy-manager:latest
 
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/nginx.conf
+ENV DISABLE_IPV6=true
 
 EXPOSE 8080
+
+CMD ["/init"]
