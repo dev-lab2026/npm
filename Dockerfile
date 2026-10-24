@@ -1,18 +1,8 @@
-FROM jc21/nginx-proxy-manager:2.11.3
+FROM traefik:v3.5
 
-ENV DISABLE_IPV6=true
-ENV PUID=0
-ENV PGID=0
+COPY traefik.yml /etc/traefik/traefik.yml
+COPY dynamic/ /etc/traefik/dynamic/
 
-RUN mkdir -p /data \
-    && mkdir -p /data/nginx \
-    && mkdir -p /data/logs \
-    && mkdir -p /etc/letsencrypt
-
-EXPOSE 80
-EXPOSE 81
-EXPOSE 443
 EXPOSE 8080
 
-ENTRYPOINT []
-CMD ["/init"]
+CMD ["traefik"]
