@@ -19,4 +19,4 @@ http:
     odoo:
       loadBalancer:
         servers:
-          - url: "odoo.tfsn.dev"
+          - url: "http://85.215.215.242:8069"
