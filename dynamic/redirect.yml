@@ -10,8 +10,12 @@ http:
       service: odoo
 
     ssh:
-      rule: "Host(`vscode.tfsn.dev`) || Host(`ssh.cleverapps.io`)"
+      rule: "Host(`ssh.cleverapps.io`)"
+      entryPoints:
+        - websecure
       service: vscode
+      tls:
+        certResolver: le
 
   services:
 
