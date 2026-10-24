@@ -1,3 +1,3 @@
-FROM nginx:alpine
+FROM jc21/nginx-proxy-manager:latest
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 8080
