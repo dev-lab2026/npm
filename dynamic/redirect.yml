@@ -8,9 +8,11 @@ http:
     odoo:
       rule: "Host(`odoo.tfsn.dev`)"
       service: odoo
+
     ssh:
       rule: "Host(`vscode.tfsn.dev`)"
       service: ssh
+
   services:
 
     portainer:
@@ -22,6 +24,7 @@ http:
       loadBalancer:
         servers:
           - url: "http://85.215.215.242:8069"
+
     ssh:
       loadBalancer:
         servers:
