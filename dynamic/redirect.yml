@@ -3,17 +3,41 @@ http:
 
     portainer:
       rule: "Host(`portainer.tfsn.dev`)"
+      entryPoints:
+        - websecure
       service: portainer
+      tls:
+        certResolver: le
 
     odoo:
       rule: "Host(`odoo.tfsn.dev`)"
+      entryPoints:
+        - websecure
       service: odoo
+      tls:
+        certResolver: le
 
-    ssh:
-      rule: "Host(`ssh.cleverapps.io`)"
+    vscode:
+      rule: "Host(`vscode.tfsn.dev`) || Host(`ssh.cleverapps.io`)"
       entryPoints:
         - websecure
       service: vscode
+      tls:
+        certResolver: le
+
+    prometric:
+      rule: "Host(`prometric.tfsn.dev`)"
+      entryPoints:
+        - websecure
+      service: prometric
+      tls:
+        certResolver: le
+
+    jenkins:
+      rule: "Host(`jenkins.tfsn.dev`)"
+      entryPoints:
+        - websecure
+      service: jenkins
       tls:
         certResolver: le
 
@@ -21,6 +45,7 @@ http:
 
     portainer:
       loadBalancer:
+        serversTransport: portainerTransport
         servers:
           - url: "https://85.215.215.242:9443"
 
@@ -33,3 +58,18 @@ http:
       loadBalancer:
         servers:
           - url: "http://85.215.215.242:8080"
+
+    prometric:
+      loadBalancer:
+        servers:
+          - url: "http://85.215.215.242:3000"
+
+    jenkins:
+      loadBalancer:
+        servers:
+          - url: "http://85.215.215.242:8081"
+
+  serversTransports:
+
+    portainerTransport:
+      insecureSkipVerify: true
