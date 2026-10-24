@@ -1,0 +1,22 @@
+http:
+  routers:
+    redirect-router:
+      rule: "Host(`odoo.cleverapps.io`)"
+      entryPoints:
+        - web
+      middlewares:
+        - redirect-odoo
+      service: noop
+
+  middlewares:
+    redirect-odoo:
+      redirectRegex:
+        regex: "^https?://odoo\\.cleverapps\\.io/(.*)"
+        replacement: "https://odoo.tfsn.dev/$1"
+        permanent: true
+
+  services:
+    noop:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1"
