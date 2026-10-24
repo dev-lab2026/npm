@@ -1,0 +1,31 @@
+http:
+  routers:
+
+    odoo:
+      rule: "Host(`odoo.tfsn.dev`)"
+      service: odoo
+
+    portainer:
+      rule: "Host(`portainer.tfsn.dev`)"
+      service: portainer
+
+    npm:
+      rule: "Host(`npm.tfsn.dev`)"
+      service: npm
+
+  services:
+
+    odoo:
+      loadBalancer:
+        servers:
+          - url: "http://85.215.215.242:8069"
+
+    portainer:
+      loadBalancer:
+        servers:
+          - url: "https://85.215.215.242:9443"
+
+    npm:
+      loadBalancer:
+        servers:
+          - url: "http://85.215.215.242:81"
