@@ -28,4 +28,4 @@ http:
     vscode:
       loadBalancer:
         servers:
-          - url: "https://85.215.215.242:8071"
+          - url: "http://85.215.215.242:8080"
