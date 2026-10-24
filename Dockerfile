@@ -5,14 +5,14 @@ ENV PUID=0
 ENV PGID=0
 
 RUN mkdir -p /data \
+    && mkdir -p /data/nginx \
+    && mkdir -p /data/logs \
     && mkdir -p /etc/letsencrypt
 
-# Clever Cloud fournit le port via $PORT
-RUN apk add --no-cache nginx
-
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
-
+EXPOSE 80
+EXPOSE 81
+EXPOSE 443
 EXPOSE 8080
 
-CMD ["/start.sh"]
+ENTRYPOINT []
+CMD ["/init"]
