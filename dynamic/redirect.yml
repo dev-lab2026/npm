@@ -10,7 +10,7 @@ http:
       service: odoo
 
     ssh:
-      rule: "Host(`vscode.tfsn.dev`)"
+      rule: "Host(`ssh.cleverapps.io`)"
       service: ssh
 
   services:
