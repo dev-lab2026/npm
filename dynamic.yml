@@ -1,31 +1,40 @@
 http:
   routers:
 
-    odoo:
-      rule: "Host(`odoo.tfsn.dev`)"
-      service: odoo
+    npm:
+      rule: "Host(`npm.cleverapps.io`)"
+      service: npm
 
     portainer:
-      rule: "Host(`portainer.tfsn.dev`)"
+      rule: "Host(`portainer.cleverapps.io`)"
       service: portainer
 
-    npm:
-      rule: "Host(`npm.tfsn.dev`)"
-      service: npm
+    odoo:
+      rule: "Host(`odoo.cleverapps.io`)"
+      service: odoo
+
+    grafana:
+      rule: "Host(`grafana.cleverapps.io`)"
+      service: grafana
 
   services:
 
-    odoo:
+    npm:
       loadBalancer:
         servers:
-          - url: "http://85.215.215.242:8069"
+          - url: "http://85.215.215.242:81"
 
     portainer:
       loadBalancer:
         servers:
           - url: "https://85.215.215.242:9443"
 
-    npm:
+    odoo:
       loadBalancer:
         servers:
-          - url: "http://85.215.215.242:81"
+          - url: "http://85.215.215.242:8069"
+
+    grafana:
+      loadBalancer:
+        servers:
+          - url: "http://85.215.215.242:3000"
