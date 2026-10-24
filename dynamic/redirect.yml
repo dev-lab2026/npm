@@ -8,7 +8,7 @@ http:
     odoo:
       rule: "Host(`odoo.tfsn.dev`)"
       service: odoo
-    vscode:
+    ssh:
       rule: "Host(`vscode.tfsn.dev`)"
       service: odoo
   services:
@@ -22,7 +22,7 @@ http:
       loadBalancer:
         servers:
           - url: "http://85.215.215.242:8069"
-    vscode:
+    ssh:
       loadBalancer:
         servers:
           - url: "http://85.215.215.242:8071"
