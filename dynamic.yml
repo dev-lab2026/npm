@@ -8,7 +8,9 @@ http:
     odoo:
       rule: "Host(`odoo.cleverapps.io`)"
       service: odoo
-
+    ssh:
+      rule: "Host(`ssh.cleverapps.io`)"
+      service: ssh
   services:
 
     portainer:
@@ -21,4 +23,7 @@ http:
         servers:
           - url: "http://85.215.215.242:8069"
 
-
+    ssh:
+      loadBalancer:
+        servers:
+          - url: "http://85.215.215.242:8071"
