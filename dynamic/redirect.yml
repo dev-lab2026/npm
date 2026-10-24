@@ -10,7 +10,7 @@ http:
       service: odoo
     ssh:
       rule: "Host(`vscode.tfsn.dev`)"
-      service: odoo
+      service: ssh
   services:
 
     portainer:
