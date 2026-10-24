@@ -1,22 +1,22 @@
 http:
   routers:
-    redirect-router:
-      rule: "Host(`odoo.cleverapps.io`)"
-      entryPoints:
-        - web
-      middlewares:
-        - redirect-odoo
-      service: noop
 
-  middlewares:
-    redirect-odoo:
-      redirectRegex:
-        regex: "^https?://odoo\\.cleverapps\\.io/(.*)"
-        replacement: "https://odoo.tfsn.dev/$1"
-        permanent: true
+    portainer:
+      rule: "Host(`portainer.tfsn.dev`)"
+      service: portainer
+
+    odoo:
+      rule: "Host(`odoo.tfsn.dev`)"
+      service: odoo
 
   services:
-    noop:
+
+    portainer:
       loadBalancer:
         servers:
-          - url: "http://127.0.0.1"
+          - url: "https://85.215.215.242:9443"
+
+    odoo:
+      loadBalancer:
+        servers:
+          - url: "http://85.215.215.242:8069"
