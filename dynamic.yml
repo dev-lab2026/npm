@@ -11,6 +11,9 @@ http:
     ssh:
       rule: "Host(`ssh.cleverapps.io`)"
       service: ssh
+    prometric:
+      rule: "Host(`prometric.cleverapps.io`)"
+      service: ssh
   services:
 
     portainer:
@@ -22,6 +25,10 @@ http:
       loadBalancer:
         servers:
           - url: "http://85.215.215.242:8069"
+    prometric:
+      loadBalancer:
+        servers:
+          - url: "http://85.215.215.242:3000"
 
     ssh:
       loadBalancer:
