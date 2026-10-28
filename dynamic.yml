@@ -8,12 +8,15 @@ http:
     odoo:
       rule: "Host(`odoo.cleverapps.io`)"
       service: odoo
+
     ssh:
       rule: "Host(`ssh.cleverapps.io`)"
       service: ssh
+
     prometric:
       rule: "Host(`prometric.cleverapps.io`)"
-      service: ssh
+      service: prometric
+
   services:
 
     portainer:
@@ -25,6 +28,7 @@ http:
       loadBalancer:
         servers:
           - url: "http://85.215.215.242:8069"
+
     prometric:
       loadBalancer:
         servers:
